@@ -1,5 +1,5 @@
-import { useState, useRef, useEffect } from 'react'
-import { motion, useInView, useAnimationControls, AnimatePresence } from 'framer-motion'
+import { useMemo, useState, useRef, useEffect } from 'react'
+import { motion, useInView, AnimatePresence } from 'framer-motion'
 import { Star, Quote, Linkedin, Github, Send, Calculator, Sparkles, Check, Home, Briefcase, Mail, ChevronDown, Code, Zap, Shield, Clock, Award, X, ArrowRight, Menu } from 'lucide-react'
 import { useLanguage } from '../context/LanguageContext'
 import Me1 from '../assets/Me1.jpg'
@@ -814,6 +814,15 @@ export default function FreelancePage({ onBack }) {
   const [complexity, setComplexity] = useState(2)
   const [pages, setPages] = useState(3)
   const [selectedTechs, setSelectedTechs] = useState(['React'])
+  const floatingParticles = useMemo(() => (
+    Array.from({ length: 20 }, (_, index) => ({
+      key: index,
+      left: (index * 23) % 100,
+      top: (index * 37) % 100,
+      duration: 3 + (index % 4) * 0.5,
+      delay: (index % 5) * 0.2,
+    }))
+  ), [])
 
   const labels = {
     en: {
@@ -945,13 +954,13 @@ export default function FreelancePage({ onBack }) {
               transition={{ duration: 4 + i, repeat: Infinity, ease: 'easeInOut', delay: i * 0.5 }}
             />
           ))}
-          {[...Array(20)].map((_, i) => (
+          {floatingParticles.map(({ key, left, top, duration, delay }) => (
             <motion.div
-              key={`p-${i}`}
+              key={`p-${key}`}
               className="absolute w-1 h-1 bg-gray-300 rounded-full"
-              style={{ left: `${Math.random() * 100}%`, top: `${Math.random() * 100}%` }}
+              style={{ left: `${left}%`, top: `${top}%` }}
               animate={{ y: [0, -30, 0], opacity: [0.2, 0.6, 0.2] }}
-              transition={{ duration: 3 + Math.random() * 2, repeat: Infinity, ease: 'easeInOut', delay: Math.random() * 2 }}
+              transition={{ duration, repeat: Infinity, ease: 'easeInOut', delay }}
             />
           ))}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
