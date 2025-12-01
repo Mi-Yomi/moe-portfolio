@@ -238,17 +238,24 @@ export default function Navbar({ onFreelanceClick }) {
       return
     }
     
+    const element = document.getElementById(item.id)
+    
+    // If element doesn't exist (we're on a different page), go back to main page
+    if (!element) {
+      if (onFreelanceClick) {
+        onFreelanceClick()
+      }
+      return
+    }
+    
     setActiveItem(item.id)
     
-    const element = document.getElementById(item.id)
-    if (element) {
-      const offset = 100
-      const elementPosition = element.getBoundingClientRect().top + window.scrollY
-      window.scrollTo({
-        top: elementPosition - offset,
-        behavior: 'smooth'
-      })
-    }
+    const offset = 100
+    const elementPosition = element.getBoundingClientRect().top + window.scrollY
+    window.scrollTo({
+      top: elementPosition - offset,
+      behavior: 'smooth'
+    })
   }
 
   useEffect(() => {

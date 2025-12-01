@@ -1,7 +1,18 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, Send, ArrowRight } from 'lucide-react'
+import { X, ArrowRight } from 'lucide-react'
 import { useLanguage } from '../context/LanguageContext'
+import emailjs from '@emailjs/browser'
+
+// EmailJS configuration
+// Чтобы настроить отправку email:
+// 1. Зарегистрируйтесь на https://www.emailjs.com/
+// 2. Создайте Email Service (Gmail, Outlook и т.д.)
+// 3. Создайте Email Template с переменными: {{from_name}}, {{from_email}}, {{phone}}, {{message}}
+// 4. Замените значения ниже на ваши
+const EMAILJS_SERVICE_ID = 'service_9rjn89f'
+const EMAILJS_TEMPLATE_ID = 'template_mhxcttf'
+const EMAILJS_PUBLIC_KEY = 'IIZqAb5_bubeAI4R0'
 
 export default function ContactModal({ isOpen, onClose }) {
   const { language } = useLanguage()
@@ -12,17 +23,42 @@ export default function ContactModal({ isOpen, onClose }) {
     message: '',
   })
   const [status, setStatus] = useState('idle')
+  const [errorMessage, setErrorMessage] = useState('')
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     setStatus('sending')
-    await new Promise(resolve => setTimeout(resolve, 1500))
-    setStatus('success')
-    setTimeout(() => {
-      setStatus('idle')
-      setFormData({ name: '', email: '', phone: '', message: '' })
-      onClose()
-    }, 5000)
+    setErrorMessage('')
+
+    try {
+      // Отправка email через EmailJS
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          phone: formData.phone || 'Не указан',
+          message: formData.message,
+          to_email: 'sevex120@gmail.com',
+        },
+        EMAILJS_PUBLIC_KEY
+      )
+      
+      setStatus('success')
+      setTimeout(() => {
+        setStatus('idle')
+        setFormData({ name: '', email: '', phone: '', message: '' })
+        onClose()
+      }, 5000)
+    } catch (error) {
+      console.error('EmailJS Error:', error)
+      setStatus('error')
+      setErrorMessage(language === 'ru' ? 'Ошибка отправки. Попробуйте позже.' : 
+                      language === 'kz' ? 'Жіберу қатесі. Кейінірек көріңіз.' :
+                      'Failed to send. Please try again.')
+      setTimeout(() => setStatus('idle'), 3000)
+    }
   }
 
   const handleChange = (e) => {
@@ -43,6 +79,7 @@ export default function ContactModal({ isOpen, onClose }) {
       success: 'Sent!',
       successText: "Thanks for reaching out!",
       successSubtext: "I'll reply within 24 hours",
+      error: 'Failed to send. Please try again.',
     },
     ru: {
       title: 'Давайте поговорим',
@@ -57,6 +94,7 @@ export default function ContactModal({ isOpen, onClose }) {
       success: 'Отправлено!',
       successText: 'Спасибо за сообщение!',
       successSubtext: 'Отвечу в течение 24 часов',
+      error: 'Ошибка отправки. Попробуйте позже.',
     },
     kz: {
       title: 'Сөйлесейік',
@@ -71,6 +109,7 @@ export default function ContactModal({ isOpen, onClose }) {
       success: 'Жіберілді!',
       successText: 'Хабарлама үшін рахмет!',
       successSubtext: '24 сағат ішінде жауап беремін',
+      error: 'Жіберу қатесі. Кейінірек көріңіз.',
     },
   }
   const l = labels[language] || labels.en
@@ -328,6 +367,20 @@ export default function ContactModal({ isOpen, onClose }) {
                         placeholder={l.message}
                         className="w-full px-4 py-3 rounded-xl bg-gray-50 border-0 focus:ring-2 focus:ring-black/5 outline-none transition-all text-sm resize-none"
                       />
+
+                      {/* Error message */}
+                      <AnimatePresence>
+                        {status === 'error' && (
+                          <motion.p
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -10 }}
+                            className="text-red-500 text-sm text-center py-2"
+                          >
+                            {errorMessage || l.error}
+                          </motion.p>
+                        )}
+                      </AnimatePresence>
 
                       <motion.button
                         type="submit"

@@ -1,20 +1,22 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { ArrowLeft, ArrowUpRight } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 import { useLanguage } from '../context/LanguageContext'
+import Navbar from './Navbar'
+import Project1Image from '../assets/Project1.png'
 
 const allProjects = [
   {
     id: 1,
-    title: 'Growbit | Finance Management App',
-    titleRu: 'Growbit | Приложение для управления финансами',
-    titleKz: 'Growbit | Қаржыны басқару қосымшасы',
-    description: 'A comprehensive finance tracking application that helps users manage their budgets, track expenses, and achieve financial goals.',
-    descriptionRu: 'Комплексное приложение для отслеживания финансов.',
-    descriptionKz: 'Кешенді қаржылық қосымша.',
-    tags: ['React', 'TypeScript', 'Node.js', 'MongoDB'],
+    title: 'zhanuar.kz | Livestock Marketplace',
+    titleRu: 'zhanuar.kz | Приложение для продажи скота',
+    titleKz: 'zhanuar.kz | Мал сату қосымшасы',
+    description: 'Complete UX/UI design for a livestock marketplace platform including web application, mobile app, merchandise, and company branding.',
+    descriptionRu: 'Полный UX/UI дизайн платформы для продажи скота.',
+    descriptionKz: 'Мал сату платформасы үшін толық UX/UI дизайн.',
+    tags: ['Figma', 'Photoshop', 'UX/UI'],
     year: '2025',
-    image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&h=400&fit=crop',
+    image: Project1Image,
     status: 'completed',
   },
   {
@@ -204,19 +206,8 @@ export default function AllProjectsPage({ onBack, onProjectClick }) {
       exit={{ opacity: 0 }}
       className="min-h-screen bg-white"
     >
-      {/* Back Button */}
-      <motion.button
-        onClick={onBack}
-        className="fixed top-4 left-4 md:top-6 md:left-6 z-50 flex items-center gap-2 px-3 py-2 md:px-4 md:py-2 bg-white/90 backdrop-blur-xl rounded-full shadow-lg border border-gray-200 hover:bg-gray-50 transition-colors cursor-pointer"
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 0.2 }}
-        whileHover={{ x: -4 }}
-        whileTap={{ scale: 0.98 }}
-      >
-        <ArrowLeft className="w-4 h-4" />
-        <span className="text-xs md:text-sm font-medium">{l.back}</span>
-      </motion.button>
+      {/* Navbar */}
+      <Navbar onFreelanceClick={onBack} />
 
       {/* Header */}
       <div className="pt-24 md:pt-32 pb-10 md:pb-16 px-4 md:px-6">

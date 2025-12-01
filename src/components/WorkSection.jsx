@@ -2,22 +2,23 @@ import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
 import { useLanguage } from '../context/LanguageContext'
+import Project1Image from '../assets/Project1.png'
 
 const projects = [
   {
     id: 1,
-    title: 'Growbit | Finance Management App',
-    titleRu: 'Growbit | Приложение для управления финансами',
-    titleKz: 'Growbit | Қаржыны басқару қосымшасы',
-    description: 'A comprehensive finance tracking application',
-    descriptionRu: 'Комплексное приложение для отслеживания финансов',
-    descriptionKz: 'Кешенді қаржылық қосымша',
-    tags: ['PRODUCT DESIGN', 'MOBILE APP'],
+    title: 'zhanuar.kz | Livestock Marketplace',
+    titleRu: 'zhanuar.kz | Приложение для продажи скота',
+    titleKz: 'zhanuar.kz | Мал сату қосымшасы',
+    description: 'Complete UX/UI design for web and mobile platforms',
+    descriptionRu: 'Полный UX/UI дизайн веб и мобильных платформ',
+    descriptionKz: 'Веб және мобильді платформалар үшін толық UX/UI дизайн',
+    tags: ['UX/UI DESIGN', 'MOBILE APP', 'WEB'],
     year: '2025',
-    bgColor: 'bg-gradient-to-br from-gray-100 to-gray-200',
-    mockupImage: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=300&h=600&fit=crop',
+    bgColor: 'bg-[#FF633C]',
+    mockupImage: Project1Image,
     hasMockup: true,
-    mockupType: 'phone',
+    mockupType: 'image',
     isComingSoon: false,
   },
   {
@@ -143,7 +144,16 @@ function ProjectCard({ project, onProjectClick, language }) {
             whileHover={{ y: -8, scale: 1.02 }}
             transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
           >
-            {project.mockupType === 'phone' ? (
+            {project.mockupType === 'image' ? (
+              /* Full cover image without device frame */
+              <div className="absolute inset-0">
+                <img 
+                  src={project.mockupImage}
+                  alt={title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ) : project.mockupType === 'phone' ? (
               <div className="relative w-32 md:w-44 h-[260px] md:h-[360px] mt-16 md:mt-24">
                 <div className="absolute inset-0 bg-black rounded-[2rem] md:rounded-[2.5rem] p-1 md:p-1.5 shadow-2xl">
                   <div className="w-full h-full bg-gray-900 rounded-[1.8rem] md:rounded-[2.2rem] overflow-hidden">
