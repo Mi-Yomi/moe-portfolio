@@ -4,6 +4,7 @@ import { ArrowUpRight } from 'lucide-react'
 import { useLanguage } from '../context/LanguageContext'
 import Navbar from './Navbar'
 import Project1Image from '../assets/Project1.png'
+import PyramidGameProject from '../assets/Pyramif_game_project.png'
 
 const allProjects = [
   {
@@ -21,15 +22,15 @@ const allProjects = [
   },
   {
     id: 2,
-    title: 'Dashboard Design System',
-    titleRu: 'Дизайн-система дашборда',
-    titleKz: 'Дашборд дизайн жүйесі',
-    description: 'A scalable dashboard design system with reusable components, built for enterprise applications.',
-    descriptionRu: 'Масштабируемая дизайн-система дашборда.',
-    descriptionKz: 'Масштабталатын дашборд дизайн жүйесі.',
-    tags: ['React', 'Storybook', 'Figma', 'SCSS'],
-    year: '2024',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop',
+    title: 'Pyramid Game | Desktop App',
+    titleRu: 'Pyramid Game | Десктоп приложение',
+    titleKz: 'Pyramid Game | Десктоп қосымша',
+    description: 'A parody desktop application inspired by the Korean TV show. Built with Qt5 and C++.',
+    descriptionRu: 'Пародийное десктоп-приложение по мотивам корейского сериала на Qt5/C++.',
+    descriptionKz: 'Корей телехикаясы бойынша Qt5/C++ негізінде жасалған десктоп қосымша.',
+    tags: ['C++', 'Qt5', 'REST API', 'Boost', 'Python'],
+    year: '2023',
+    image: PyramidGameProject,
     status: 'completed',
   },
   {

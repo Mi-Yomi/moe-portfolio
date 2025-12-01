@@ -6,6 +6,8 @@ import Navbar from './Navbar'
 import ProjectInnerPhoto from '../assets/project_inner_photo.png'
 import ProjectPhoto1 from '../assets/project_pjoto_1.jpg'
 import ProjectPhoto2 from '../assets/project_pjoto_2.jpg'
+import PyramidGameProject from '../assets/Pyramif_game_project.png'
+import PyramidGameInner from '../assets/pyramidf_game_inner_photo.jpg'
 
 // Image Lightbox Component with zoom and navigation
 function ImageLightbox({ images, currentIndex, onClose, onPrev, onNext, language, hasImageCaptions }) {
@@ -188,7 +190,7 @@ function ImageLightbox({ images, currentIndex, onClose, onPrev, onNext, language
       {/* Caption */}
       <div className="p-4 md:p-6 text-center">
         <p className="text-white/60 text-sm">
-          <span className="text-orange-400">
+          <span className="text-pink-400">
             {language === 'ru' ? `Рис. ${figureNum}` : language === 'kz' ? `Сур. ${figureNum}` : `Fig. ${figureNum}`}
           </span>
           <span className="mx-2">—</span>
@@ -217,7 +219,7 @@ function ImageLightbox({ images, currentIndex, onClose, onPrev, onNext, language
                 if (diff < 0) for (let i = 0; i < Math.abs(diff); i++) onPrev()
               }}
               className={`relative w-16 h-12 md:w-20 md:h-14 rounded-lg overflow-hidden flex-shrink-0 transition-all ${
-                idx === currentIndex ? 'ring-2 ring-orange-500 ring-offset-2 ring-offset-black' : 'opacity-50 hover:opacity-80'
+                idx === currentIndex ? 'ring-2 ring-pink-500 ring-offset-2 ring-offset-black' : 'opacity-50 hover:opacity-80'
               }`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -284,49 +286,54 @@ const projectData = {
     hasImageCaptions: true,
   },
   2: {
-    title: 'Dashboard Design System',
-    titleRu: 'Дизайн-система дашборда',
-    titleKz: 'Дашборд дизайн жүйесі',
-    description: 'A scalable dashboard design system with reusable components, built for enterprise applications.',
-    descriptionRu: 'Масштабируемая дизайн-система дашборда с переиспользуемыми компонентами для корпоративных приложений.',
-    descriptionKz: 'Корпоративтік қосымшалар үшін қайта пайдаланылатын компоненттері бар масштабталатын дашборд дизайн жүйесі.',
-    role: 'Frontend Developer',
-    roleRu: 'Frontend разработчик',
-    roleKz: 'Frontend әзірлеуші',
-    duration: '2 months',
-    durationRu: '2 месяца',
-    durationKz: '2 ай',
-    year: '2024',
-    tags: ['React', 'TypeScript', 'Storybook', 'Figma', 'SCSS'],
+    title: 'Pyramid Game | Desktop App',
+    titleRu: 'Pyramid Game | Десктоп приложение',
+    titleKz: 'Pyramid Game | Десктоп қосымша',
+    description: 'A parody desktop application inspired by the Korean TV show "Pyramid Game". Built with Qt5 and C++, featuring a REST API backend with Flask and SQLite database for user authentication and data management.',
+    descriptionRu: 'Пародийное десктоп-приложение, вдохновлённое корейским сериалом "Pyramid Game". Разработано на Qt5 и C++ с REST API бэкендом на Flask и базой данных SQLite для аутентификации пользователей и управления данными.',
+    descriptionKz: 'Корей телехикаясы "Pyramid Game" негізінде жасалған пародиялық десктоп қосымшасы. Qt5 және C++ көмегімен жасалған, пайдаланушы аутентификациясы мен деректерді басқару үшін Flask REST API және SQLite дерекқоры бар.',
+    role: 'C++ Main Developer',
+    roleRu: 'C++ разработчик',
+    roleKz: 'C++ әзірлеуші',
+    duration: '7 days',
+    durationRu: '7 дней',
+    durationKz: '7 күн',
+    year: '2023',
+    tags: ['Qt5', 'C++', 'REST API', 'Boost', 'Python', 'Flask', 'SQLite'],
     features: [
-      '50+ reusable components',
-      'Storybook documentation',
-      'Figma design tokens sync',
-      'Accessibility compliant',
-      'Theming support'
+      'REST API integration with Flask backend',
+      'SQLite database for user data',
+      'User authentication system',
+      'Qt5 modern UI with custom styling',
+      'Memory-safe implementation with smart pointers',
+      'Cross-platform desktop application'
     ],
     featuresRu: [
-      '50+ переиспользуемых компонентов',
-      'Документация в Storybook',
-      'Синхронизация дизайн-токенов с Figma',
-      'Соответствие стандартам доступности',
-      'Поддержка тем'
+      'REST API интеграция с Flask бэкендом',
+      'SQLite база данных для пользователей',
+      'Система аутентификации пользователей',
+      'Современный UI на Qt5 с кастомными стилями',
+      'Безопасная работа с памятью через умные указатели',
+      'Кроссплатформенное десктоп-приложение'
     ],
     featuresKz: [
-      '50+ қайта пайдаланылатын компонент',
-      'Storybook құжаттамасы',
-      'Figma дизайн токендерімен синхрондау',
-      'Қолжетімділік стандарттарына сәйкестік',
-      'Тақырыптарды қолдау'
+      'Flask бэкендімен REST API интеграциясы',
+      'Пайдаланушы деректері үшін SQLite дерекқоры',
+      'Пайдаланушы аутентификация жүйесі',
+      'Qt5 заманауи UI арнайы стильдермен',
+      'Ақылды көрсеткіштер арқылы жадпен қауіпсіз жұмыс',
+      'Кросс-платформалы десктоп қосымша'
     ],
     images: [
-      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop',
-      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop',
+      { src: PyramidGameProject, caption: 'Application Login Screen', captionRu: 'Экран входа в приложение', captionKz: 'Қосымшаға кіру экраны' },
+      { src: PyramidGameInner, caption: 'Main Application Interface', captionRu: 'Главный интерфейс приложения', captionKz: 'Қосымшаның негізгі интерфейсі' },
     ],
-    liveUrl: '#',
-    githubUrl: 'https://github.com/Mi-Yomi',
-    bgColor: 'from-gray-800 via-gray-900 to-black',
+    liveUrl: null,
+    githubUrl: 'https://github.com/Mi-Yomi/Piramid_game',
+    bgColor: 'from-[#1a1a2e] via-[#16213e] to-[#0f0f23]',
     isDark: true,
+    hasImageCaptions: true,
+    isSakuraTheme: true,
   },
 }
 
@@ -434,6 +441,317 @@ export default function ProjectPage({ projectId, onBack }) {
         {/* Subtle pattern overlay */}
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCI+CjxwYXRoIGQ9Ik0wIDBoNjB2NjBIMHoiIGZpbGw9Im5vbmUiLz4KPHBhdGggZD0iTTMwIDBMMzAgNjBNMCAzMEw2MCAzMCIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDUpIiBzdHJva2Utd2lkdGg9IjEiLz4KPC9zdmc+')] opacity-50" />
         
+        {/* Farm Scene Animation - Only for Orange Theme (zhanuar.kz) */}
+        {project.isOrangeTheme && (
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            {/* Sky gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-green-900/20" />
+            
+            {/* Sun */}
+            <motion.div
+              className="absolute top-16 right-20 w-16 h-16 rounded-full bg-yellow-300/30 blur-xl"
+              animate={{ 
+                scale: [1, 1.2, 1],
+                opacity: [0.3, 0.5, 0.3]
+              }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            />
+            
+            {/* Distant hills */}
+            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-green-800/30 to-transparent" />
+            
+            {/* Barn */}
+            <div className="absolute bottom-20 left-[10%] opacity-40">
+              <svg width="80" height="70" viewBox="0 0 80 70">
+                {/* Barn body */}
+                <rect x="10" y="30" width="60" height="40" fill="#8B4513" />
+                {/* Barn roof */}
+                <polygon points="0,30 40,5 80,30" fill="#A0522D" />
+                {/* Barn door */}
+                <rect x="30" y="45" width="20" height="25" fill="#5D3A1A" />
+                <line x1="40" y1="45" x2="40" y2="70" stroke="#3D2A0A" strokeWidth="2" />
+                {/* Window */}
+                <rect x="55" y="40" width="10" height="10" fill="#FFE4B5" opacity="0.8" />
+                {/* Silo */}
+                <rect x="70" y="20" width="15" height="50" fill="#808080" />
+                <ellipse cx="77.5" cy="20" rx="7.5" ry="4" fill="#696969" />
+              </svg>
+            </div>
+            
+            {/* Fence posts */}
+            {[...Array(12)].map((_, i) => (
+              <div 
+                key={`fence-${i}`}
+                className="absolute bottom-16 opacity-30"
+                style={{ left: `${5 + i * 8}%` }}
+              >
+                <svg width="20" height="40" viewBox="0 0 20 40">
+                  <rect x="8" y="0" width="4" height="40" fill="#8B4513" />
+                  <rect x="0" y="10" width="20" height="3" fill="#A0522D" />
+                  <rect x="0" y="25" width="20" height="3" fill="#A0522D" />
+                </svg>
+              </div>
+            ))}
+            
+            {/* Dirt road */}
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-32 h-24 opacity-20">
+              <svg width="128" height="96" viewBox="0 0 128 96">
+                <path d="M40,0 L88,0 L128,96 L0,96 Z" fill="#8B7355" />
+                <path d="M50,20 L78,20 L95,96 L33,96 Z" fill="#9C8465" opacity="0.5" />
+              </svg>
+            </div>
+            
+            {/* Grass patches */}
+            {[...Array(20)].map((_, i) => (
+              <motion.div 
+                key={`grass-${i}`}
+                className="absolute bottom-12 opacity-40"
+                style={{ left: `${Math.random() * 100}%` }}
+                animate={{ 
+                  rotateZ: [-3, 3, -3],
+                  scaleY: [1, 1.05, 1]
+                }}
+                transition={{ 
+                  duration: 2 + Math.random(), 
+                  repeat: Infinity,
+                  delay: Math.random() * 2 
+                }}
+              >
+                <svg width="16" height="20" viewBox="0 0 16 20">
+                  <path d="M8,20 Q6,10 4,0" stroke="#228B22" strokeWidth="2" fill="none" />
+                  <path d="M8,20 Q8,8 8,0" stroke="#32CD32" strokeWidth="2" fill="none" />
+                  <path d="M8,20 Q10,10 12,0" stroke="#228B22" strokeWidth="2" fill="none" />
+                </svg>
+              </motion.div>
+            ))}
+            
+            {/* Cow 1 - Grazing */}
+            <motion.div 
+              className="absolute bottom-14 left-[25%] opacity-50"
+              animate={{ x: [0, 10, 0] }}
+              transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <svg width="50" height="35" viewBox="0 0 50 35">
+                {/* Body */}
+                <ellipse cx="25" cy="22" rx="18" ry="10" fill="#F5F5DC" />
+                {/* Spots */}
+                <ellipse cx="20" cy="20" rx="5" ry="4" fill="#2F2F2F" />
+                <ellipse cx="32" cy="24" rx="4" ry="3" fill="#2F2F2F" />
+                {/* Head */}
+                <motion.g
+                  animate={{ rotate: [0, 10, 0, -5, 0] }}
+                  transition={{ duration: 4, repeat: Infinity }}
+                  style={{ transformOrigin: '8px 18px' }}
+                >
+                  <ellipse cx="8" cy="18" rx="7" ry="5" fill="#F5F5DC" />
+                  <ellipse cx="5" cy="16" rx="2" ry="1.5" fill="#FFB6C1" />
+                  <circle cx="6" cy="15" r="1" fill="#2F2F2F" />
+                  <ellipse cx="3" cy="19" rx="3" ry="2" fill="#FFB6C1" />
+                </motion.g>
+                {/* Legs */}
+                <rect x="12" y="28" width="3" height="7" fill="#F5F5DC" />
+                <rect x="20" y="28" width="3" height="7" fill="#F5F5DC" />
+                <rect x="30" y="28" width="3" height="7" fill="#F5F5DC" />
+                <rect x="38" y="28" width="3" height="7" fill="#F5F5DC" />
+                {/* Tail */}
+                <motion.path 
+                  d="M43,20 Q48,18 46,25" 
+                  stroke="#8B4513" 
+                  strokeWidth="2" 
+                  fill="none"
+                  animate={{ d: ["M43,20 Q48,18 46,25", "M43,20 Q50,20 48,27", "M43,20 Q48,18 46,25"] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                />
+              </svg>
+            </motion.div>
+            
+            {/* Cow 2 - Walking */}
+            <motion.div 
+              className="absolute bottom-16 opacity-40"
+              animate={{ x: [0, 100, 0] }}
+              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              style={{ left: '60%' }}
+            >
+              <svg width="40" height="28" viewBox="0 0 50 35">
+                <ellipse cx="25" cy="22" rx="15" ry="8" fill="#8B4513" />
+                <ellipse cx="10" cy="18" rx="6" ry="4" fill="#8B4513" />
+                <circle cx="8" cy="16" r="1" fill="#2F2F2F" />
+                <rect x="14" y="27" width="2" height="6" fill="#8B4513" />
+                <rect x="22" y="27" width="2" height="6" fill="#8B4513" />
+                <rect x="30" y="27" width="2" height="6" fill="#8B4513" />
+                <rect x="36" y="27" width="2" height="6" fill="#8B4513" />
+              </svg>
+            </motion.div>
+            
+            {/* Sheep */}
+            <motion.div 
+              className="absolute bottom-12 right-[20%] opacity-40"
+              animate={{ y: [0, -3, 0] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
+              <svg width="30" height="25" viewBox="0 0 30 25">
+                {/* Fluffy body */}
+                <ellipse cx="15" cy="15" rx="12" ry="8" fill="#FFFAF0" />
+                <circle cx="8" cy="12" r="4" fill="#FFFAF0" />
+                <circle cx="22" cy="12" r="4" fill="#FFFAF0" />
+                <circle cx="15" cy="8" r="4" fill="#FFFAF0" />
+                {/* Head */}
+                <ellipse cx="5" cy="15" rx="4" ry="3" fill="#2F2F2F" />
+                <circle cx="3" cy="14" r="1" fill="#FFFAF0" />
+                {/* Legs */}
+                <rect x="10" y="20" width="2" height="5" fill="#2F2F2F" />
+                <rect x="18" y="20" width="2" height="5" fill="#2F2F2F" />
+              </svg>
+            </motion.div>
+            
+            {/* Birds flying */}
+            {[...Array(3)].map((_, i) => (
+              <motion.div
+                key={`bird-${i}`}
+                className="absolute opacity-30"
+                style={{ top: `${15 + i * 8}%` }}
+                animate={{ 
+                  x: ['-10%', '110%'],
+                  y: [0, -10, 5, -5, 0]
+                }}
+                transition={{ 
+                  duration: 15 + i * 5, 
+                  repeat: Infinity, 
+                  delay: i * 3,
+                  ease: "linear"
+                }}
+              >
+                <svg width="20" height="10" viewBox="0 0 20 10">
+                  <motion.path 
+                    d="M0,5 Q5,0 10,5 Q15,0 20,5" 
+                    stroke="#2F2F2F" 
+                    strokeWidth="2" 
+                    fill="none"
+                    animate={{ d: ["M0,5 Q5,0 10,5 Q15,0 20,5", "M0,5 Q5,8 10,5 Q15,8 20,5", "M0,5 Q5,0 10,5 Q15,0 20,5"] }}
+                    transition={{ duration: 0.3, repeat: Infinity }}
+                  />
+                </svg>
+              </motion.div>
+            ))}
+            
+            {/* Clouds */}
+            {[...Array(3)].map((_, i) => (
+              <motion.div
+                key={`cloud-${i}`}
+                className="absolute opacity-20"
+                style={{ 
+                  top: `${10 + i * 5}%`,
+                  left: `${20 + i * 25}%`
+                }}
+                animate={{ x: [0, 30, 0] }}
+                transition={{ duration: 20 + i * 5, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <svg width="60" height="30" viewBox="0 0 60 30">
+                  <ellipse cx="20" cy="20" rx="15" ry="10" fill="white" />
+                  <ellipse cx="35" cy="18" rx="18" ry="12" fill="white" />
+                  <ellipse cx="50" cy="22" rx="12" ry="8" fill="white" />
+                </svg>
+              </motion.div>
+            ))}
+          </div>
+        )}
+        
+        {/* Sakura Falling Petals - Only for Sakura Theme */}
+        {project.isSakuraTheme && (
+          <>
+            {/* Sakura branch decoration */}
+            <div className="absolute top-0 right-0 w-64 h-64 opacity-20 pointer-events-none">
+              <svg viewBox="0 0 200 200" className="w-full h-full">
+                <path d="M180 0 Q 150 50, 120 80 Q 90 110, 60 130 Q 30 150, 10 180" stroke="#FFB7C5" strokeWidth="3" fill="none" />
+                <circle cx="120" cy="80" r="8" fill="#FFB7C5" opacity="0.8" />
+                <circle cx="90" cy="95" r="6" fill="#FFB7C5" opacity="0.6" />
+                <circle cx="60" cy="130" r="7" fill="#FFB7C5" opacity="0.7" />
+              </svg>
+            </div>
+            
+            {/* Falling Sakura Petals */}
+            {[...Array(20)].map((_, i) => (
+              <motion.div
+                key={i}
+                className="absolute pointer-events-none"
+                style={{
+                  left: `${Math.random() * 100}%`,
+                  top: -20,
+                }}
+                animate={{
+                  y: ['0vh', '110vh'],
+                  x: [0, Math.sin(i) * 100, Math.cos(i) * 50, Math.sin(i + 1) * 80],
+                  rotate: [0, 360, 720, 1080],
+                  opacity: [0, 1, 1, 0],
+                }}
+                transition={{
+                  duration: 8 + Math.random() * 6,
+                  repeat: Infinity,
+                  delay: Math.random() * 8,
+                  ease: "linear",
+                }}
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" className="text-pink-300/60">
+                  <path
+                    fill="currentColor"
+                    d="M12 2C12 2 8 6 8 10C8 12 10 14 12 14C14 14 16 12 16 10C16 6 12 2 12 2Z"
+                    transform={`rotate(${i * 72} 12 12)`}
+                  />
+                  <path
+                    fill="currentColor"
+                    d="M12 2C12 2 8 6 8 10C8 12 10 14 12 14C14 14 16 12 16 10C16 6 12 2 12 2Z"
+                    transform="rotate(72 12 12)"
+                    opacity="0.8"
+                  />
+                  <path
+                    fill="currentColor"
+                    d="M12 2C12 2 8 6 8 10C8 12 10 14 12 14C14 14 16 12 16 10C16 6 12 2 12 2Z"
+                    transform="rotate(144 12 12)"
+                    opacity="0.6"
+                  />
+                  <path
+                    fill="currentColor"
+                    d="M12 2C12 2 8 6 8 10C8 12 10 14 12 14C14 14 16 12 16 10C16 6 12 2 12 2Z"
+                    transform="rotate(216 12 12)"
+                    opacity="0.8"
+                  />
+                  <path
+                    fill="currentColor"
+                    d="M12 2C12 2 8 6 8 10C8 12 10 14 12 14C14 14 16 12 16 10C16 6 12 2 12 2Z"
+                    transform="rotate(288 12 12)"
+                    opacity="0.7"
+                  />
+                  <circle cx="12" cy="12" r="2" fill="#FFD700" opacity="0.8" />
+                </svg>
+              </motion.div>
+            ))}
+            
+            {/* Floating particles */}
+            {[...Array(12)].map((_, i) => (
+              <motion.div
+                key={`particle-${i}`}
+                className="absolute w-1 h-1 rounded-full bg-pink-400/40"
+                style={{
+                  left: `${10 + Math.random() * 80}%`,
+                  top: `${10 + Math.random() * 80}%`,
+                }}
+                animate={{
+                  y: [0, -20, 0],
+                  x: [0, Math.sin(i) * 15, 0],
+                  opacity: [0.3, 0.7, 0.3],
+                  scale: [1, 1.5, 1],
+                }}
+                transition={{
+                  duration: 4 + Math.random() * 2,
+                  repeat: Infinity,
+                  delay: Math.random() * 4,
+                  ease: "easeInOut",
+                }}
+              />
+            ))}
+          </>
+        )}
+        
         {/* Content container */}
         <motion.div 
           className="relative h-full flex flex-col items-center justify-center px-6 pt-28 pb-16"
@@ -489,54 +807,155 @@ export default function ProjectPage({ projectId, onBack }) {
       </motion.div>
 
       {/* Content */}
-      <div className="max-w-4xl mx-auto px-6 py-16">
-        {/* Description */}
+      <div className="max-w-5xl mx-auto px-6 py-24">
+        {/* About Section - Clean Modern Design */}
         <ScrollReveal>
-          <p className="text-xl text-gray-600 leading-relaxed">{description}</p>
+          <div className="mb-16">
+            {/* Section Label */}
+            <motion.div 
+              className="flex items-center gap-3 mb-8"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2 }}
+            >
+              <div className={`w-12 h-px ${
+                project.isOrangeTheme ? 'bg-orange-400' : 
+                project.isSakuraTheme ? 'bg-pink-400' : 'bg-gray-300'
+              }`} />
+              <span className={`text-sm font-semibold uppercase tracking-widest ${
+                project.isOrangeTheme ? 'text-orange-500' : 
+                project.isSakuraTheme ? 'text-pink-500' : 'text-gray-400'
+              }`}>
+                {language === 'ru' ? 'О проекте' : language === 'kz' ? 'Жоба туралы' : 'About'}
+              </span>
+            </motion.div>
+            
+            {/* Main Description - Large Typography */}
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-snug mb-8">
+              {description.split('.')[0]}.
+            </h2>
+            
+            {/* Additional Details - If description is long */}
+            {description.split('.').length > 1 && (
+              <p className="text-lg text-gray-500 leading-relaxed max-w-3xl">
+                {description.split('.').slice(1).join('.').trim()}
+              </p>
+            )}
+          </div>
         </ScrollReveal>
 
-        {/* Meta Info */}
+        {/* Meta Info - Modern Cards */}
         <ScrollReveal delay={0.1}>
-          <div className="grid grid-cols-3 gap-6 mt-12 p-6 bg-gray-50 rounded-2xl">
-            <motion.div whileHover={{ scale: 1.02 }}>
-              <div className="flex items-center gap-2 text-gray-400 mb-1">
-                <Layers className="w-4 h-4" />
-                <span className="text-sm">{l.role}</span>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+            {/* Role Card */}
+            <motion.div 
+              className={`relative p-6 rounded-2xl border overflow-hidden group ${
+                project.isOrangeTheme 
+                  ? 'bg-gradient-to-br from-orange-50 to-white border-orange-100 hover:border-orange-300' 
+                  : project.isSakuraTheme 
+                  ? 'bg-gradient-to-br from-pink-50 to-white border-pink-100 hover:border-pink-300'
+                  : 'bg-gradient-to-br from-gray-50 to-white border-gray-100 hover:border-gray-300'
+              }`}
+              whileHover={{ y: -4, scale: 1.02 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className={`absolute top-0 right-0 w-20 h-20 opacity-10 ${
+                project.isOrangeTheme ? 'bg-orange-500' : 
+                project.isSakuraTheme ? 'bg-pink-500' : 'bg-gray-500'
+              } rounded-bl-full`} />
+              <div className={`inline-flex items-center justify-center w-10 h-10 rounded-xl mb-4 ${
+                project.isOrangeTheme ? 'bg-orange-100 text-orange-600' : 
+                project.isSakuraTheme ? 'bg-pink-100 text-pink-600' : 'bg-gray-100 text-gray-600'
+              }`}>
+                <Layers className="w-5 h-5" />
               </div>
-              <p className="font-semibold text-gray-900">{role}</p>
+              <p className="text-xs font-medium uppercase tracking-wider text-gray-400 mb-1">{l.role}</p>
+              <p className="text-lg font-bold text-gray-900">{role}</p>
             </motion.div>
-            <motion.div whileHover={{ scale: 1.02 }}>
-              <div className="flex items-center gap-2 text-gray-400 mb-1">
-                <Clock className="w-4 h-4" />
-                <span className="text-sm">{l.duration}</span>
+            
+            {/* Duration Card */}
+            <motion.div 
+              className={`relative p-6 rounded-2xl border overflow-hidden group ${
+                project.isOrangeTheme 
+                  ? 'bg-gradient-to-br from-orange-50 to-white border-orange-100 hover:border-orange-300' 
+                  : project.isSakuraTheme 
+                  ? 'bg-gradient-to-br from-pink-50 to-white border-pink-100 hover:border-pink-300'
+                  : 'bg-gradient-to-br from-gray-50 to-white border-gray-100 hover:border-gray-300'
+              }`}
+              whileHover={{ y: -4, scale: 1.02 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className={`absolute top-0 right-0 w-20 h-20 opacity-10 ${
+                project.isOrangeTheme ? 'bg-orange-500' : 
+                project.isSakuraTheme ? 'bg-pink-500' : 'bg-gray-500'
+              } rounded-bl-full`} />
+              <div className={`inline-flex items-center justify-center w-10 h-10 rounded-xl mb-4 ${
+                project.isOrangeTheme ? 'bg-orange-100 text-orange-600' : 
+                project.isSakuraTheme ? 'bg-pink-100 text-pink-600' : 'bg-gray-100 text-gray-600'
+              }`}>
+                <Clock className="w-5 h-5" />
               </div>
-              <p className="font-semibold text-gray-900">{duration}</p>
+              <p className="text-xs font-medium uppercase tracking-wider text-gray-400 mb-1">{l.duration}</p>
+              <p className="text-lg font-bold text-gray-900">{duration}</p>
             </motion.div>
-            <motion.div whileHover={{ scale: 1.02 }}>
-              <div className="flex items-center gap-2 text-gray-400 mb-1">
-                <Calendar className="w-4 h-4" />
-                <span className="text-sm">{l.year}</span>
+            
+            {/* Year Card */}
+            <motion.div 
+              className={`relative p-6 rounded-2xl border overflow-hidden group ${
+                project.isOrangeTheme 
+                  ? 'bg-gradient-to-br from-orange-50 to-white border-orange-100 hover:border-orange-300' 
+                  : project.isSakuraTheme 
+                  ? 'bg-gradient-to-br from-pink-50 to-white border-pink-100 hover:border-pink-300'
+                  : 'bg-gradient-to-br from-gray-50 to-white border-gray-100 hover:border-gray-300'
+              }`}
+              whileHover={{ y: -4, scale: 1.02 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className={`absolute top-0 right-0 w-20 h-20 opacity-10 ${
+                project.isOrangeTheme ? 'bg-orange-500' : 
+                project.isSakuraTheme ? 'bg-pink-500' : 'bg-gray-500'
+              } rounded-bl-full`} />
+              <div className={`inline-flex items-center justify-center w-10 h-10 rounded-xl mb-4 ${
+                project.isOrangeTheme ? 'bg-orange-100 text-orange-600' : 
+                project.isSakuraTheme ? 'bg-pink-100 text-pink-600' : 'bg-gray-100 text-gray-600'
+              }`}>
+                <Calendar className="w-5 h-5" />
               </div>
-              <p className="font-semibold text-gray-900">{project.year}</p>
+              <p className="text-xs font-medium uppercase tracking-wider text-gray-400 mb-1">{l.year}</p>
+              <p className="text-lg font-bold text-gray-900">{project.year}</p>
             </motion.div>
           </div>
         </ScrollReveal>
 
         {/* Technologies */}
         <ScrollReveal delay={0.2}>
-          <div className="mt-12">
-            <h2 className="text-lg font-semibold text-gray-900 mb-4">{l.tech}</h2>
-            <div className="flex flex-wrap gap-2">
+          <div className="mt-16">
+            {/* Section Label */}
+            <div className="flex items-center gap-3 mb-6">
+              <div className={`w-8 h-px ${
+                project.isOrangeTheme ? 'bg-orange-400' : 
+                project.isSakuraTheme ? 'bg-pink-400' : 'bg-gray-300'
+              }`} />
+              <h2 className={`text-sm font-semibold uppercase tracking-widest ${
+                project.isOrangeTheme ? 'text-orange-500' : 
+                project.isSakuraTheme ? 'text-pink-500' : 'text-gray-400'
+              }`}>{l.tech}</h2>
+            </div>
+            <div className="flex flex-wrap gap-3">
               {project.tags.map((tag, index) => (
                 <motion.span
                   key={tag}
-                  className={`px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium ${
-                    project.isOrangeTheme ? 'hover:bg-orange-500 hover:text-white' : 'hover:bg-black hover:text-white'
+                  className={`px-5 py-2.5 rounded-xl text-sm font-semibold border transition-all duration-300 ${
+                    project.isOrangeTheme 
+                      ? 'bg-orange-50 text-orange-700 border-orange-200 hover:bg-orange-500 hover:text-white hover:border-orange-500' 
+                      : project.isSakuraTheme 
+                      ? 'bg-pink-50 text-pink-700 border-pink-200 hover:bg-pink-500 hover:text-white hover:border-pink-500'
+                      : 'bg-gray-50 text-gray-700 border-gray-200 hover:bg-black hover:text-white hover:border-black'
                   }`}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 + index * 0.05 }}
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{ scale: 1.05, y: -2 }}
                   style={{ cursor: 'default' }}
                 >
                   {tag}
@@ -548,26 +967,45 @@ export default function ProjectPage({ projectId, onBack }) {
 
         {/* Features */}
         <ScrollReveal delay={0.3}>
-          <div className="mt-12">
-            <h2 className="text-lg font-semibold text-gray-900 mb-4">{l.features}</h2>
-            <ul className="space-y-3">
+          <div className="mt-16">
+            {/* Section Label */}
+            <div className="flex items-center gap-3 mb-6">
+              <div className={`w-8 h-px ${
+                project.isOrangeTheme ? 'bg-orange-400' : 
+                project.isSakuraTheme ? 'bg-pink-400' : 'bg-gray-300'
+              }`} />
+              <h2 className={`text-sm font-semibold uppercase tracking-widest ${
+                project.isOrangeTheme ? 'text-orange-500' : 
+                project.isSakuraTheme ? 'text-pink-500' : 'text-gray-400'
+              }`}>{l.features}</h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {features.map((feature, index) => (
-                <motion.li
+                <motion.div
                   key={index}
-                  className="flex items-start gap-3"
+                  className={`flex items-center gap-4 p-4 rounded-xl border transition-all duration-300 ${
+                    project.isOrangeTheme 
+                      ? 'bg-white border-orange-100 hover:border-orange-300 hover:shadow-md hover:shadow-orange-100' 
+                      : project.isSakuraTheme 
+                      ? 'bg-white border-pink-100 hover:border-pink-300 hover:shadow-md hover:shadow-pink-100'
+                      : 'bg-white border-gray-100 hover:border-gray-300 hover:shadow-md'
+                  }`}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
+                  transition={{ delay: index * 0.08 }}
+                  whileHover={{ x: 4 }}
                 >
-                  <motion.span 
-                    className={`w-2 h-2 rounded-full mt-2 flex-shrink-0 ${project.isOrangeTheme ? 'bg-orange-500' : 'bg-black'}`}
-                    whileHover={{ scale: 1.5 }}
-                  />
-                  <span className="text-gray-600">{feature}</span>
-                </motion.li>
+                  <div className={`flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold ${
+                    project.isOrangeTheme ? 'bg-orange-100 text-orange-600' : 
+                    project.isSakuraTheme ? 'bg-pink-100 text-pink-600' : 'bg-gray-100 text-gray-600'
+                  }`}>
+                    {String(index + 1).padStart(2, '0')}
+                  </div>
+                  <span className="text-gray-700 font-medium">{feature}</span>
+                </motion.div>
               ))}
-            </ul>
+            </div>
           </div>
         </ScrollReveal>
 
@@ -616,7 +1054,10 @@ export default function ProjectPage({ projectId, onBack }) {
                     
                     {/* Figure caption */}
                     <figcaption className="mt-4 text-center">
-                      <span className={`text-sm ${project.isOrangeTheme ? 'text-orange-500/70' : 'text-gray-400'}`}>
+                      <span className={`text-sm ${
+                        project.isOrangeTheme ? 'text-orange-500/70' : 
+                        project.isSakuraTheme ? 'text-pink-500/70' : 'text-gray-400'
+                      }`}>
                         {language === 'ru' ? `Рис. ${figureNum}` : language === 'kz' ? `Сур. ${figureNum}` : `Fig. ${figureNum}`}
                       </span>
                       <span className="text-sm text-gray-400"> — </span>
@@ -625,7 +1066,10 @@ export default function ProjectPage({ projectId, onBack }) {
                     
                     {/* Separator between images */}
                     {index < project.images.length - 2 && (
-                      <div className={`mt-12 h-px ${project.isOrangeTheme ? 'bg-orange-200' : 'bg-gray-200'}`} />
+                      <div className={`mt-12 h-px ${
+                        project.isOrangeTheme ? 'bg-orange-200' : 
+                        project.isSakuraTheme ? 'bg-pink-200' : 'bg-gray-200'
+                      }`} />
                     )}
                   </motion.figure>
                 )
@@ -636,29 +1080,37 @@ export default function ProjectPage({ projectId, onBack }) {
 
         {/* Links */}
         <ScrollReveal delay={0.5}>
-          <div className="mt-12 flex gap-4">
-            <motion.a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all ${
-                project.isOrangeTheme 
-                  ? 'bg-orange-500 text-white hover:bg-orange-600' 
-                  : 'bg-black text-white'
-              }`}
-              style={{ cursor: 'pointer' }}
-              whileHover={{ scale: 1.03, boxShadow: project.isOrangeTheme ? '0 8px 20px rgba(255,99,60,0.25)' : '0 8px 20px rgba(0,0,0,0.2)' }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <ExternalLink className="w-4 h-4" />
-              {l.live}
-            </motion.a>
+          <div className="mt-12 flex flex-wrap gap-4">
+            {project.liveUrl && (
+              <motion.a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all ${
+                  project.isOrangeTheme 
+                    ? 'bg-orange-500 text-white hover:bg-orange-600' 
+                    : project.isSakuraTheme
+                    ? 'bg-gradient-to-r from-pink-500 to-rose-500 text-white hover:from-pink-600 hover:to-rose-600'
+                    : 'bg-black text-white'
+                }`}
+                style={{ cursor: 'pointer' }}
+                whileHover={{ scale: 1.03, boxShadow: project.isOrangeTheme ? '0 8px 20px rgba(255,99,60,0.25)' : '0 8px 20px rgba(0,0,0,0.2)' }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <ExternalLink className="w-4 h-4" />
+                {l.live}
+              </motion.a>
+            )}
             {project.githubUrl && (
               <motion.a
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-6 py-3 bg-gray-100 text-gray-900 rounded-full font-medium transition-all duration-300 hover:bg-black hover:text-white"
+                className={`flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+                  project.isSakuraTheme
+                    ? 'bg-gradient-to-r from-[#1a1a2e] to-[#16213e] text-pink-200 border border-pink-500/30 hover:border-pink-400/60 hover:text-pink-100'
+                    : 'bg-gray-100 text-gray-900 hover:bg-black hover:text-white'
+                }`}
                 style={{ cursor: 'pointer' }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

@@ -3,6 +3,7 @@ import { motion, useInView } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
 import { useLanguage } from '../context/LanguageContext'
 import Project1Image from '../assets/Project1.png'
+import PyramidGameProject from '../assets/Pyramif_game_project.png'
 
 const projects = [
   {
@@ -23,18 +24,18 @@ const projects = [
   },
   {
     id: 2,
-    title: 'Dashboard Design System',
-    titleRu: 'Дизайн-система дашборда',
-    titleKz: 'Дашборд дизайн жүйесі',
-    description: 'Scalable dashboard components',
-    descriptionRu: 'Масштабируемые компоненты дашборда',
-    descriptionKz: 'Масштабталатын дашборд компоненттері',
-    tags: ['DASHBOARD', 'DESIGN SYSTEM'],
-    year: '2024',
-    bgColor: 'bg-gradient-to-br from-gray-900 to-black',
-    mockupImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop',
+    title: 'Pyramid Game | Desktop App',
+    titleRu: 'Pyramid Game | Десктоп приложение',
+    titleKz: 'Pyramid Game | Десктоп қосымша',
+    description: 'Qt5/C++ desktop app with REST API',
+    descriptionRu: 'Qt5/C++ десктоп приложение с REST API',
+    descriptionKz: 'REST API бар Qt5/C++ десктоп қосымша',
+    tags: ['C++', 'QT5', 'REST API'],
+    year: '2023',
+    bgColor: 'bg-gradient-to-br from-[#1a1a2e] via-[#16213e] to-[#0f0f23]',
+    mockupImage: PyramidGameProject,
     hasMockup: true,
-    mockupType: 'desktop',
+    mockupType: 'image',
     isDark: true,
     isComingSoon: false,
   },
