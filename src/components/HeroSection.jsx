@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
 import { useLanguage } from '../context/LanguageContext'
 import Me1 from '../assets/Me1.jpg'
@@ -8,6 +8,18 @@ import Me3 from '../assets/me3.jpg'
 export default function HeroSection() {
   const { t } = useLanguage()
   const [isHovered, setIsHovered] = useState(false)
+  const particles = useMemo(() => (
+    Array.from({ length: 12 }, (_, index) => ({
+      width: 3 + (index % 4),
+      height: 2 + ((index * 3) % 5),
+      left: (index * 17) % 100,
+      top: (index * 29) % 100,
+      xOffset: ((index * 11) % 20) - 10,
+      duration: 4 + (index % 5) * 0.6,
+      delay: (index % 6) * 0.25,
+      key: index,
+    }))
+  ), [])
 
   return (
     <section id="home" className="min-h-[85vh] md:min-h-[85vh] flex items-center justify-center px-4 md:px-6 pt-28 md:pt-40 pb-12 md:pb-16 relative overflow-hidden bg-white">
@@ -48,27 +60,27 @@ export default function HeroSection() {
         />
 
         {/* Floating particles */}
-        {[...Array(12)].map((_, i) => (
+        {particles.map(({ key, width, height, left, top, xOffset, duration, delay }) => (
           <motion.div
-            key={i}
+            key={key}
             className="absolute rounded-full bg-gray-300"
             style={{
-              width: Math.random() * 6 + 2,
-              height: Math.random() * 6 + 2,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
+              width,
+              height,
+              left: `${left}%`,
+              top: `${top}%`,
             }}
             animate={{
               y: [0, -30, 0],
-              x: [0, Math.random() * 20 - 10, 0],
+              x: [0, xOffset, 0],
               opacity: [0.2, 0.5, 0.2],
               scale: [1, 1.2, 1],
             }}
             transition={{
-              duration: 4 + Math.random() * 4,
+              duration,
               repeat: Infinity,
               ease: "easeInOut",
-              delay: Math.random() * 2,
+              delay,
             }}
           />
         ))}
