@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, useCallback } from 'react'
 import { motion, useInView, useScroll, useTransform, AnimatePresence } from 'framer-motion'
-import { ExternalLink, Github, Calendar, Clock, Layers, X, ChevronLeft, ChevronRight, ZoomIn, ZoomOut } from 'lucide-react'
+import { ExternalLink, Github, Calendar, Clock, Layers, X, ChevronLeft, ChevronRight, ZoomIn, ZoomOut, Palette, Smartphone, Globe, Sparkles, CheckCircle2, Zap, Shield, Users, Code2, Database, Server, Layout, Figma, Box } from 'lucide-react'
 import { useLanguage } from '../context/LanguageContext'
 import Navbar from './Navbar'
 import ProjectInnerPhoto from '../assets/project_inner_photo.png'
@@ -233,14 +233,38 @@ function ImageLightbox({ images, currentIndex, onClose, onPrev, onNext, language
   )
 }
 
+// Technology icons mapping
+const techIcons = {
+  'Figma': '🎨',
+  'Adobe Photoshop': '🖼️',
+  'shadcn/ui': '⚡',
+  'Qt5': '🖥️',
+  'C++': '⚙️',
+  'REST API': '🔗',
+  'Boost': '🚀',
+  'Python': '🐍',
+  'Flask': '🌶️',
+  'SQLite': '💾',
+  'React': '⚛️',
+  'TypeScript': '📘',
+  'JavaScript': '📒',
+  'Node.js': '💚',
+  'MongoDB': '🍃',
+  'PostgreSQL': '🐘',
+  'Docker': '🐳',
+  'AWS': '☁️',
+  'Git': '📚',
+  'Tailwind': '💨',
+}
+
 const projectData = {
   1: {
     title: 'zhanuar.kz | Livestock Marketplace',
-    titleRu: 'zhanuar.kz | Приложение для продажи скота',
+    titleRu: 'zhanuar.kz | Маркетплейс скота',
     titleKz: 'zhanuar.kz | Мал сату қосымшасы',
-    description: 'Complete UX/UI design for a livestock marketplace platform including web application, mobile app, merchandise, and company branding.',
-    descriptionRu: 'Полный UX/UI дизайн платформы для продажи скота: веб-приложение, мобильное приложение, мерч и фирменный стиль компании.',
-    descriptionKz: 'Мал сату платформасы үшін толық UX/UI дизайн: веб-қосымша, мобильді қосымша, мерч және компанияның фирмалық стилі.',
+    description: 'Full-cycle UX/UI design for a livestock marketplace. Web, mobile app, merchandise, and brand identity.',
+    descriptionRu: 'Полный цикл UX/UI дизайна маркетплейса скота. Веб, мобильное приложение, мерч и брендинг.',
+    descriptionKz: 'Мал сату маркетплейсінің толық UX/UI дизайны. Веб, мобильді қосымша, мерч және брендинг.',
     role: 'UX/UI Designer',
     roleRu: 'UX/UI дизайнер',
     roleKz: 'UX/UI дизайнер',
@@ -250,28 +274,12 @@ const projectData = {
     year: '2025',
     tags: ['Figma', 'Adobe Photoshop', 'shadcn/ui'],
     features: [
-      'Responsive adaptive design',
-      'Modular 12-column grid system',
-      'Design tokens & variables for quick customization',
-      'Complete component library',
-      'Brand identity & style guide',
-      'Interactive micro-animations'
-    ],
-    featuresRu: [
-      'Адаптивный отзывчивый дизайн',
-      'Модульная 12-колоночная сетка',
-      'Дизайн-токены и переменные для быстрых изменений',
-      'Полная библиотека компонентов',
-      'Фирменный стиль и гайдлайны',
-      'Интерактивные микро-анимации'
-    ],
-    featuresKz: [
-      'Адаптивті жауапты дизайн',
-      'Модульді 12-бағандық тор',
-      'Жылдам өзгертулер үшін дизайн-токендер мен айнымалылар',
-      'Толық компонент кітапханасы',
-      'Фирмалық стиль және нұсқаулықтар',
-      'Интерактивті микро-анимациялар'
+      { icon: 'responsive', text: 'Adaptive responsive design', textRu: 'Адаптивный дизайн', textKz: 'Адаптивті дизайн' },
+      { icon: 'grid', text: '12-column modular grid', textRu: '12-колоночная сетка', textKz: '12-бағандық тор' },
+      { icon: 'tokens', text: 'Design tokens system', textRu: 'Система дизайн-токенов', textKz: 'Дизайн-токен жүйесі' },
+      { icon: 'components', text: 'Full component library', textRu: 'Библиотека компонентов', textKz: 'Компонент кітапханасы' },
+      { icon: 'brand', text: 'Brand identity guide', textRu: 'Гайдлайн бренда', textKz: 'Бренд нұсқаулығы' },
+      { icon: 'animation', text: 'Micro-interactions', textRu: 'Микро-анимации', textKz: 'Микро-анимациялар' },
     ],
     images: [
       { src: ProjectInnerPhoto, caption: 'Brand Identity', captionRu: 'Фирменный стиль', captionKz: 'Фирмалық стиль' },
@@ -289,9 +297,9 @@ const projectData = {
     title: 'Pyramid Game | Desktop App',
     titleRu: 'Pyramid Game | Десктоп приложение',
     titleKz: 'Pyramid Game | Десктоп қосымша',
-    description: 'A parody desktop application inspired by the Korean TV show "Pyramid Game". Built with Qt5 and C++, featuring a REST API backend with Flask and SQLite database for user authentication and data management.',
-    descriptionRu: 'Пародийное десктоп-приложение, вдохновлённое корейским сериалом "Pyramid Game". Разработано на Qt5 и C++ с REST API бэкендом на Flask и базой данных SQLite для аутентификации пользователей и управления данными.',
-    descriptionKz: 'Корей телехикаясы "Pyramid Game" негізінде жасалған пародиялық десктоп қосымшасы. Qt5 және C++ көмегімен жасалған, пайдаланушы аутентификациясы мен деректерді басқару үшін Flask REST API және SQLite дерекқоры бар.',
+    description: 'Desktop app inspired by Korean drama "Pyramid Game". Qt5/C++ with Flask REST API backend.',
+    descriptionRu: 'Десктоп приложение по мотивам корейской дорамы "Pyramid Game". Qt5/C++ с REST API на Flask.',
+    descriptionKz: 'Корей дорамасы "Pyramid Game" бойынша десктоп қосымша. Qt5/C++ және Flask REST API.',
     role: 'C++ Main Developer',
     roleRu: 'C++ разработчик',
     roleKz: 'C++ әзірлеуші',
@@ -301,28 +309,12 @@ const projectData = {
     year: '2023',
     tags: ['Qt5', 'C++', 'REST API', 'Boost', 'Python', 'Flask', 'SQLite'],
     features: [
-      'REST API integration with Flask backend',
-      'SQLite database for user data',
-      'User authentication system',
-      'Qt5 modern UI with custom styling',
-      'Memory-safe implementation with smart pointers',
-      'Cross-platform desktop application'
-    ],
-    featuresRu: [
-      'REST API интеграция с Flask бэкендом',
-      'SQLite база данных для пользователей',
-      'Система аутентификации пользователей',
-      'Современный UI на Qt5 с кастомными стилями',
-      'Безопасная работа с памятью через умные указатели',
-      'Кроссплатформенное десктоп-приложение'
-    ],
-    featuresKz: [
-      'Flask бэкендімен REST API интеграциясы',
-      'Пайдаланушы деректері үшін SQLite дерекқоры',
-      'Пайдаланушы аутентификация жүйесі',
-      'Qt5 заманауи UI арнайы стильдермен',
-      'Ақылды көрсеткіштер арқылы жадпен қауіпсіз жұмыс',
-      'Кросс-платформалы десктоп қосымша'
+      { icon: 'api', text: 'REST API with Flask', textRu: 'REST API на Flask', textKz: 'Flask REST API' },
+      { icon: 'database', text: 'SQLite database', textRu: 'База данных SQLite', textKz: 'SQLite дерекқоры' },
+      { icon: 'auth', text: 'User authentication', textRu: 'Авторизация', textKz: 'Авторизация' },
+      { icon: 'ui', text: 'Modern Qt5 UI', textRu: 'Современный UI', textKz: 'Заманауи UI' },
+      { icon: 'memory', text: 'Memory-safe code', textRu: 'Безопасная память', textKz: 'Қауіпсіз жад' },
+      { icon: 'cross', text: 'Cross-platform', textRu: 'Кроссплатформенный', textKz: 'Кросс-платформалы' },
     ],
     images: [
       { src: PyramidGameProject, caption: 'Application Login Screen', captionRu: 'Экран входа в приложение', captionKz: 'Қосымшаға кіру экраны' },
@@ -411,7 +403,6 @@ export default function ProjectPage({ projectId, onBack }) {
   const description = getLocalizedText(project.description, project.descriptionRu, project.descriptionKz)
   const role = getLocalizedText(project.role, project.roleRu, project.roleKz)
   const duration = getLocalizedText(project.duration, project.durationRu, project.durationKz)
-  const features = getLocalizedText(project.features, project.featuresRu, project.featuresKz)
 
   const labels = {
     en: { role: 'My Role', duration: 'Duration', year: 'Year', features: 'Key Features', tech: 'Technologies', links: 'Links', live: 'Live Demo', code: 'Source Code' },
@@ -927,84 +918,77 @@ export default function ProjectPage({ projectId, onBack }) {
           </div>
         </ScrollReveal>
 
-        {/* Technologies */}
+        {/* Technologies - Clean Modern Style */}
         <ScrollReveal delay={0.2}>
-          <div className="mt-16">
-            {/* Section Label */}
-            <div className="flex items-center gap-3 mb-6">
-              <div className={`w-8 h-px ${
-                project.isOrangeTheme ? 'bg-orange-400' : 
-                project.isSakuraTheme ? 'bg-pink-400' : 'bg-gray-300'
-              }`} />
-              <h2 className={`text-sm font-semibold uppercase tracking-widest ${
-                project.isOrangeTheme ? 'text-orange-500' : 
-                project.isSakuraTheme ? 'text-pink-500' : 'text-gray-400'
-              }`}>{l.tech}</h2>
-            </div>
-            <div className="flex flex-wrap gap-3">
+          <div className="mt-20">
+            <h2 className="text-2xl font-bold text-gray-900 mb-8">{l.tech}</h2>
+            <div className="flex flex-wrap gap-4">
               {project.tags.map((tag, index) => (
-                <motion.span
+                <motion.div
                   key={tag}
-                  className={`px-5 py-2.5 rounded-xl text-sm font-semibold border transition-all duration-300 ${
-                    project.isOrangeTheme 
-                      ? 'bg-orange-50 text-orange-700 border-orange-200 hover:bg-orange-500 hover:text-white hover:border-orange-500' 
-                      : project.isSakuraTheme 
-                      ? 'bg-pink-50 text-pink-700 border-pink-200 hover:bg-pink-500 hover:text-white hover:border-pink-500'
-                      : 'bg-gray-50 text-gray-700 border-gray-200 hover:bg-black hover:text-white hover:border-black'
-                  }`}
-                  initial={{ opacity: 0, y: 10 }}
+                  className="group flex items-center gap-3 px-5 py-3 bg-gray-50 hover:bg-gray-900 rounded-2xl border border-gray-100 hover:border-gray-900 transition-all duration-300"
+                  initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 + index * 0.05 }}
-                  whileHover={{ scale: 1.05, y: -2 }}
+                  transition={{ delay: 0.2 + index * 0.05, duration: 0.4 }}
+                  whileHover={{ scale: 1.02, y: -2 }}
                   style={{ cursor: 'default' }}
                 >
-                  {tag}
-                </motion.span>
+                  <span className="text-xl group-hover:scale-110 transition-transform">
+                    {techIcons[tag] || '📦'}
+                  </span>
+                  <span className="font-semibold text-gray-700 group-hover:text-white transition-colors">
+                    {tag}
+                  </span>
+                </motion.div>
               ))}
             </div>
           </div>
         </ScrollReveal>
 
-        {/* Features */}
+        {/* Features - Clean Grid with Icons */}
         <ScrollReveal delay={0.3}>
-          <div className="mt-16">
-            {/* Section Label */}
-            <div className="flex items-center gap-3 mb-6">
-              <div className={`w-8 h-px ${
-                project.isOrangeTheme ? 'bg-orange-400' : 
-                project.isSakuraTheme ? 'bg-pink-400' : 'bg-gray-300'
-              }`} />
-              <h2 className={`text-sm font-semibold uppercase tracking-widest ${
-                project.isOrangeTheme ? 'text-orange-500' : 
-                project.isSakuraTheme ? 'text-pink-500' : 'text-gray-400'
-              }`}>{l.features}</h2>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {features.map((feature, index) => (
-                <motion.div
-                  key={index}
-                  className={`flex items-center gap-4 p-4 rounded-xl border transition-all duration-300 ${
-                    project.isOrangeTheme 
-                      ? 'bg-white border-orange-100 hover:border-orange-300 hover:shadow-md hover:shadow-orange-100' 
-                      : project.isSakuraTheme 
-                      ? 'bg-white border-pink-100 hover:border-pink-300 hover:shadow-md hover:shadow-pink-100'
-                      : 'bg-white border-gray-100 hover:border-gray-300 hover:shadow-md'
-                  }`}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.08 }}
-                  whileHover={{ x: 4 }}
-                >
-                  <div className={`flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold ${
-                    project.isOrangeTheme ? 'bg-orange-100 text-orange-600' : 
-                    project.isSakuraTheme ? 'bg-pink-100 text-pink-600' : 'bg-gray-100 text-gray-600'
-                  }`}>
-                    {String(index + 1).padStart(2, '0')}
-                  </div>
-                  <span className="text-gray-700 font-medium">{feature}</span>
-                </motion.div>
-              ))}
+          <div className="mt-20">
+            <h2 className="text-2xl font-bold text-gray-900 mb-8">{l.features}</h2>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+              {project.features.map((feature, index) => {
+                const featureText = language === 'ru' ? feature.textRu : language === 'kz' ? feature.textKz : feature.text
+                const featureIcons = {
+                  responsive: <Smartphone className="w-6 h-6" />,
+                  grid: <Layout className="w-6 h-6" />,
+                  tokens: <Palette className="w-6 h-6" />,
+                  components: <Box className="w-6 h-6" />,
+                  brand: <Sparkles className="w-6 h-6" />,
+                  animation: <Zap className="w-6 h-6" />,
+                  api: <Globe className="w-6 h-6" />,
+                  database: <Database className="w-6 h-6" />,
+                  auth: <Shield className="w-6 h-6" />,
+                  ui: <Layout className="w-6 h-6" />,
+                  memory: <Code2 className="w-6 h-6" />,
+                  cross: <Server className="w-6 h-6" />,
+                }
+                return (
+                  <motion.div
+                    key={index}
+                    className="group relative p-6 bg-white rounded-2xl border border-gray-100 hover:border-gray-200 hover:shadow-xl hover:shadow-gray-100/50 transition-all duration-500"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1, duration: 0.5 }}
+                    whileHover={{ y: -8 }}
+                  >
+                    {/* Icon */}
+                    <div className="w-12 h-12 mb-4 rounded-xl bg-gray-900 text-white flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                      {featureIcons[feature.icon] || <CheckCircle2 className="w-6 h-6" />}
+                    </div>
+                    {/* Text */}
+                    <p className="font-semibold text-gray-900 group-hover:text-gray-700 transition-colors">
+                      {featureText}
+                    </p>
+                    {/* Decorative gradient on hover */}
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-gray-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity -z-10" />
+                  </motion.div>
+                )
+              })}
             </div>
           </div>
         </ScrollReveal>
